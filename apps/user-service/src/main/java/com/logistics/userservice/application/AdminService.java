@@ -12,14 +12,13 @@ import com.logistics.userservice.domain.RequestedRole;
 import com.logistics.userservice.domain.User;
 import com.logistics.userservice.domain.UserRepository;
 import com.logistics.userservice.error.UserErrorCode;
+import java.util.UUID;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.ApplicationEventPublisher;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-
-import java.util.UUID;
 
 @Service
 @RequiredArgsConstructor
@@ -88,7 +87,9 @@ public class AdminService {
      * @param command
      */
     @Transactional
-    public void updateUser(UserUpdateCommand command) {userService.updateUser(command);}
+    public void updateUser(UserUpdateCommand command) {
+        userService.updateUser(command);
+    }
 
     /**
      * 회원 정보 삭제
@@ -96,7 +97,9 @@ public class AdminService {
      * @param userId
      */
     @Transactional
-    public void deleteUser(UUID userId) { userService.deleteUser(userId); }
+    public void deleteUser(UUID userId) {
+        userService.deleteUser(userId);
+    }
 
     // ============================== Approval ==============================
     /**
